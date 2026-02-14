@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tuki 💙</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    overflow: hidden;
+    color: white;
+}
+
+/* STAR BACKGROUND */
+.star-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background:
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: moveStars 60s linear infinite;
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-500px); }
+}
+
+/* INTRO */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#intro h1 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #00d4ff, #ffd700);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* MAIN */
+#main {
+    display: none;
+    text-align: center;
+    padding-top: 20vh;
+}
+
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #00d4ff, #ffd700);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#message {
+    font-size: 18px;
+    margin: 20px;
+    min-height: 60px;
+}
+
+#final {
+    display: none;
+    margin-top: 30px;
+}
+
+.heart {
+    font-size: 70px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="star-bg"></div>
+
+<div id="intro">
+    <h1>Close your eyes... someone special is waiting ✨</h1>
+    <button id="enterBtn">Enter</button>
+</div>
+
+<div id="main">
+    <div class="title">
+        Masrurah Hossain Nubah 💙 <br>
+        (My Tuki)
+    </div>
+
+    <div id="message"></div>
+
+    <button id="heartBtn">Open My Heart</button>
+
+    <div id="final">
+        <h2>You are my forever, Tuki 💫</h2>
+        <div class="heart">❤️</div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    var enterBtn = document.getElementById("enterBtn");
+    var intro = document.getElementById("intro");
+    var main = document.getElementById("main");
+    var message = document.getElementById("message");
+    var heartBtn = document.getElementById("heartBtn");
+    var final = document.getElementById("final");
+
+    enterBtn.addEventListener("click", function() {
+        intro.style.display = "none";
+        main.style.display = "block";
+        startTyping();
+    });
+
+    var text = "Tuki... you are the calm in my chaos, the light in my darkness, the smile in my every day. I don't just want you for Valentine's. I want you for every tomorrow of my life.";
+    var index = 0;
+
+    function startTyping() {
+        function type() {
+            if (index < text.length) {
+                message.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 40);
+            }
+        }
+        type();
+    }
+
+    heartBtn.addEventListener("click", function() {
+        final.style.display = "block";
+    });
+
+});
+</script>
+
+</body>
+</html>
